@@ -1,0 +1,65 @@
+---
+import {Image} from "astro:assets"
+import banner_image from "../../public/banner_img.webp"
+---
+
+
+<div class="banner" id="banner">
+    <div class="welcome_message" id="welcome_message">
+        <h2>¡Hola, soy Juan Pablo!</h2>
+        <p class="profession">Ingeniero de software.</p>
+        <span class="im_best">Me especializo en el <b class="highlighted_text">desarrollo fullstack de aplicaciones web.</b></span>
+        <p class="language">You speak english? 	&#x1f1fa;&#x1f1f8;</p>
+    </div>
+    <div class="image" id="image">
+        <Image src={banner_image} alt="Me!" loading={"eager"}/>
+    </div>
+</div>
+
+<style>
+    .banner{
+        display: flex;
+        margin-block-start: 13.5rem;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        color: white;
+        padding-inline: 12rem;
+     }
+     .welcome_message{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+     }
+     .highlighted_text{
+        color:#1438BA;
+     }
+    h2, p {
+        margin: 0;
+        padding: 0;
+    }
+    h2{
+        font-size: 42px;
+    }
+    .profession{
+        font-size: 24px;
+    }
+    .im_best{
+        font-size: 17px;
+        border: 1px solid antiquewhite;
+        background-color: #fff;
+        color: black;
+        border-radius: .5rem;
+        padding: .1rem;
+    }
+    .language{
+        background: linear-gradient(to right, #00247D, #FFFFFF, #CF142B);;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .image img{
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+    }
+</style>
