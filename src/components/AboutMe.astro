@@ -7,7 +7,9 @@
 <div class="about_me" id="about_me">
     <div class="title">Acerca de mí</div>
     <div class="description">
-        
+        <p>Me llamo Juan Pablo y soy desarrollador web desde hace casi 3 años, tengo experiencia
+            en JavaScript, TypeScript, React, NextJS, Golang, Node y Java principalmente. </p>
+        <p>¿Buscas <span style="color:#04D418;"><a class="linkedin" href="/contact" >contactarme</a></span>?</p>
     </div>
 </div>
 
@@ -17,13 +19,24 @@
     .about_me{
         margin: 0 auto;
         width: 400px;
-        color: white;
+        color: black;
+        border: 1px solid white;
+        border-radius: 5px;
     }
     .title{
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid white;
         width: 400px;
+        border-bottom: 1px solid white;
+        background-color: white;
+    }
+    .description{
+        text-align: center;
+        color: white;
+    }
+    .linkedin{
+        text-decoration: none;
+        color:inherit;
     }
 </style>
