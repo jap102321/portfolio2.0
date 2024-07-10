@@ -14,6 +14,7 @@
 .description{
     max-width: 500px;
     font-size: 20px;
+    padding-inline: .3rem;
 }
 
 .contactInfo{
@@ -43,4 +44,11 @@
     height: 22px;
     margin: 0;
     padding: 0;
+}
+
+
+@media (max-width:750px) {
+    .contactInfo{
+        margin-block-start: 3rem;
+    }
 }

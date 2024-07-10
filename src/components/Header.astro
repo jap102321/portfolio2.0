@@ -1,23 +1,28 @@
 ---
-import Navbar from "../components/Navbar.astro"
+import Navbar from "../components/ReactComponents/Navbar/Navbar";
 
 ---
 
-<header>
-    <h1>Juan Pablo Gonzalez</h1>
-    <Navbar />
+<header class="header_container">
+    <h1 class="title_name"><a href="/">Juan Pablo Gonzalez</a></h1>
+    <Navbar client:load/>
 </header>
 
 
 <style>
-    header{
+    .header_container{
         display: flex;
         justify-content: space-between;
         align-items: center;
         color: white;
         padding-inline: 1.5rem;
     }
-    header h1{
-        font-size: 24px;
+    .title_name{
+        font-size: 28px;
+        margin-block-start: .5rem;
+    }
+    .title_name a{
+        text-decoration:none;
+        color:inherit;
     }
 </style>

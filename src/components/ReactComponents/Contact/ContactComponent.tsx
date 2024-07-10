@@ -9,7 +9,7 @@ const ContactComponent = () => {
      Dominio en JavaScript, TypeScript, Node, React, Java y Golang. 
 
      <br/>Actualmente aprendiendo arquitecturas de diseño en Golang, 
-     trabajando en Capgemini actualmente como React Developer.
+     trabajando en Capgemini como Front-End Developer.
     </p>
     <div className={styles.contactInfo}>
         <h1 className={styles.title}>¿Quieres contactarme?</h1>
