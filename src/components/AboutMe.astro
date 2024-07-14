@@ -1,4 +1,8 @@
 ---
+import { useTranslations } from "@/i18n/utils";
+
+const {currentLocale} = Astro;
+const t = useTranslations(currentLocale as any);
 
 ---
 
@@ -7,9 +11,8 @@
 <div class="about_me" id="about_me">
     <div class="title">Acerca de mí</div>
     <div class="description">
-        <p>Me llamo Juan Pablo y soy desarrollador web desde hace casi 3 años, tengo experiencia
-            en JavaScript, TypeScript, React, NextJS, Golang, Node y Java principalmente. </p>
-        <p>¿Buscas <span style="color:#04D418;"><a class="linkedin" href="/contact" >contactarme</a></span>?</p>
+        <p>{t("aboutMe")}</p>
+        <p>{t("contact")} <span style="color:#04D418;"><a class="linkedin" href="/contact" >{t("contactUrl")}</a></span>?</p>
     </div>
 </div>
 

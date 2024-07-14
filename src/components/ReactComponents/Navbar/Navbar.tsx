@@ -1,25 +1,34 @@
 import styles from "./navbar.module.css"
 import { useMediaQuery } from "react-responsive";
 import '@/styles/globals.css'
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTrigger } from "@/components/ui/drawer";
+import { useTranslations } from "@/i18n/utils";
 
-const Navbar = () => {
+
+interface NavbarType {
+  lang:any;
+  getRelativeLangUrl: (url: string) => string;
+}
+
+
+const Navbar = ({lang, getRelativeLangUrl } : NavbarType) => {
  const isMobile = useMediaQuery({query: '(max-width:750px)'})
+ const t = useTranslations(lang);
 
   return(
     <div className={styles.navbarList}>
         {
             !isMobile && (
             <ul className={styles.ul_navbar}>
-                <li className={styles.li_navbar}><a href="/">Home</a></li>
-                <li className={styles.li_navbar}><a href="#about_me">About</a></li>
-                <li className={styles.li_navbar}><a href="/contact">Contact</a></li>
+                <li className={styles.li_navbar}><a href="/">{t('nav.home')}</a></li>
+                <li className={styles.li_navbar}><a href="#about_me">{t('nav.about')}</a></li>
+                <li className={styles.li_navbar}><a href={getRelativeLangUrl("about")}>{t('nav.contact')}</a></li>
             </ul>
             )
         }
         {
             isMobile && ( 
-             <Drawer direction="right" className="tw-w-52">
+             <Drawer direction="right">
                  <DrawerTrigger asChild>
                     <img className={styles.hamb_menu} src={"/hamb_menu.svg"} alt="hamburguer_button"/>
                  </DrawerTrigger>
@@ -29,9 +38,9 @@ const Navbar = () => {
                    <div className="tw-mx-auto tw-w-full tw-max-w-sm tw-text-white">
                         <DrawerHeader>
                             <ul className={styles.ul_navbar}>
-                                <li className={styles.li_navbar}><a href="/">Home</a></li>
-                                <li className={styles.li_navbar}><a href="#about_me">About</a></li>
-                                <li className={styles.li_navbar}><a href="/contact">Contact</a></li>
+                              <li className={styles.li_navbar}><a href="/">{t('nav.home')}</a></li>
+                              <li className={styles.li_navbar}><a href="#about_me">{t('nav.about')}</a></li>
+                              <li className={styles.li_navbar}><a href="/contact">{t('nav.contact')}</a></li>
                             </ul>
                         </DrawerHeader>
                     </div>

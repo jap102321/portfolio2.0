@@ -1,15 +1,33 @@
 ---
 import {Image} from "astro:assets"
 import banner_image from "../../public/avatar.png"
+import { languages } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
+import { defaultLang } from "@/i18n/ui";
+
+const {currentLocale} = Astro;
+
+const currentLang = Object.entries(languages).filter(([lang, label]) =>( lang !== currentLocale)).map(([lang, label]) => ({
+    lang: lang,
+    label: label,
+}))
+
+
+const t = useTranslations(currentLocale as any);
 ---
 
 
 <div class="banner" id="banner">
     <div class="welcome_message" id="welcome_message">
-        <h2>¡Hola, soy Juan Pablo!</h2>
-        <p class="profession">Ingeniero de software.</p>
-        <span class="im_best">Me especializo en el <b class="highlighted_text">desarrollo fullstack de aplicaciones web.</b></span>
-        <p class="language">You speak english? 	&#x1f1fa;&#x1f1f8;</p>
+        <h2>Hello, soy Juan Pablo!</h2>
+        <p class="profession">{t("profession")}</p>
+        <span class="im_best">{t("specializeText")} <b class="highlighted_text">{t("coloredSpecializeText")}</b></span>
+        {
+            currentLang.map(({lang, label}) =>
+             (
+              <p class="language"> <a href={lang === defaultLang ? '/' : `/${lang}/`}>{`${t("changeLang")}`} {label}</a>?</p>
+            ))
+        }
     </div>
     <div class="image" id="image">
         <Image src={banner_image} alt="Me!" loading={"eager"}/>

@@ -1,11 +1,20 @@
 ---
+import { getLangFromUrl } from "@/i18n/utils";
 import Navbar from "../components/ReactComponents/Navbar/Navbar";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
+const lang = getLangFromUrl(Astro.url);
+const {currentLocale} = Astro;
+
+
+const getUrlFromLocalLang = (url: string) => {
+    return getRelativeLocaleUrl(currentLocale ?? 'es', url);
+}
 ---
 
 <header class="header_container">
     <h1 class="title_name"><a href="/">Juan Pablo Gonzalez</a></h1>
-    <Navbar client:load/>
+    <Navbar lang={lang} getRelativeLangUrl={getUrlFromLocalLang}/>
 </header>
 
 
