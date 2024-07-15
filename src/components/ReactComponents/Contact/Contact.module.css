@@ -22,6 +22,7 @@
     flex-direction: column;
     gap: .5rem;
     box-sizing: border-box;
+    margin-block-start: 4.5rem;
 }
 .contactLink{
     font-size: 24px;
@@ -50,5 +51,8 @@
 @media (max-width:750px) {
     .contactInfo{
         margin-block-start: 3rem;
+    }
+    .description{
+        padding-inline: .9rem;
     }
 }

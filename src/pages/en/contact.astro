@@ -1,9 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import ContactComponent from "../../components/ReactComponents/Contact/ContactComponent.tsx"
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
 ---
 
 
 <Layout title="Contact">
-    <ContactComponent client:load/>
+    <ContactComponent currentLang={lang} client:load/>
 </Layout>
